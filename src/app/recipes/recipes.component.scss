@@ -1,0 +1,14 @@
+.container {
+  // border: 2px solid blue;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.container > * {
+  flex-basis: 0; // Elementy zajmują początkowo tyle miejsca ile potrzebują
+  flex-grow: 1; // Elementy rozciągają się równomiernie w rzędzie
+  // margin-right: auto;
+  // border: 2px solid blue;
+}

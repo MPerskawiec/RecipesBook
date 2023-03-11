@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="con">
+    <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="img-stl" />
+    <div class="text-name">
+      <p>
+        <a [routerLink]="'/recipe/' + recipe.name.replaceAll(' ', '-')">{{
+          recipe.name
+        }}</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="icons">
+    <div>
+      <img src="https://www.przepisy.pl/ng-assets/icons-svg/man.svg?v=1" />
+      <h5>{{ recipe.mealPortions }} os.</h5>
+    </div>
+    <div>
+      <img
+        *ngIf="recipe.difficulty === 'łatwy'"
+        src="https://www.przepisy.pl/ng-assets/icons-svg/recipe-difficulty-easy.svg"
+      />
+      <img
+        *ngIf="recipe.difficulty === 'średni'"
+        src="https://www.przepisy.pl/ng-assets/icons-svg/recipe-difficulty-medium.svg"
+      />
+      <img
+        *ngIf="recipe.difficulty === 'trudny'"
+        src="https://www.przepisy.pl/ng-assets/icons-svg/recipe-difficulty-hard.svg"
+      />
+
+      <h5>{{ recipe.difficulty }}</h5>
+    </div>
+    <div>
+      <img
+        src="https://www.przepisy.pl/ng-assets/icons-svg/recipe-time.svg?v=1"
+      />
+      <h5>{{ recipe.preparationTime }} min.</h5>
+    </div>
+  </div>
+</div>
