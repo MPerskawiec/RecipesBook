@@ -9,18 +9,7 @@ import { RecipeService } from '../shared/recipe.service';
   styleUrls: ['./recipe.component.scss'],
 })
 export class RecipeComponent implements OnInit {
-  recipe: Recipe;
-  recipeName: String;
+  constructor() {}
 
-  constructor(
-    private recipeService: RecipeService,
-    private route: ActivatedRoute
-  ) {}
-
-  ngOnInit(): void {
-    this.route.firstChild.params.subscribe((params: Params) => {
-      this.recipeName = params.name;
-      console.log(this.recipeName);
-    });
-  }
+  ngOnInit(): void {}
 }

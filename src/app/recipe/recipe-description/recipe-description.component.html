@@ -1,1 +1,38 @@
-<p>recipe-description works!</p>
+<div class="container">
+  <div class="container-preview">
+    <div class="previev-description">
+      <h1>{{ recipe.name }}</h1>
+    </div>
+    <div class="preview-image">
+      <img
+        src="{{ recipe.imagePath }}"
+        alt="{{ recipe.name }}"
+        class="img-style"
+      />
+    </div>
+  </div>
+  <div class="container-description">
+    <div class="container-ingredients" #ingredientsList>
+      <h1>Składniki</h1>
+      <br />
+      <div *ngFor="let ingredient of recipe.ingredients">
+        <input type="checkbox" name="ingredients" [value]="ingredient.name" />
+        {{ ingredient.name }} | {{ ingredient.amount }}
+      </div>
+
+      <button type="button" (click)="addToShoppingList()">
+        Dodaj do listy zakupów
+      </button>
+    </div>
+
+    <div class="container-steps">
+      <h1>Przygotowanie krok po kroku</h1>
+      <br />
+      <div *ngFor="let step of recipe.StepDescription; let i = index">
+        <h2>Krok: {{ i + 1 }}</h2>
+        <h3>{{ step }}</h3>
+        <br />
+      </div>
+    </div>
+  </div>
+</div>
