@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Recipe } from 'src/app/shared/recipe.model';
 import { RecipeService } from 'src/app/shared/recipe.service';
+import { ShoppingListService } from 'src/app/shared/shopping-list.service';
 
 @Component({
   selector: 'app-recipe-description',
@@ -15,6 +16,7 @@ export class RecipeDescriptionComponent implements OnInit {
 
   constructor(
     private recipeService: RecipeService,
+    private slServie: ShoppingListService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -54,6 +56,10 @@ export class RecipeDescriptionComponent implements OnInit {
       checkboxValues.push(checkbox.checked);
     });
 
-    console.log(checkboxValues);
+    const slItems = this.recipe.ingredients.filter(
+      (_, index) => checkboxValues[index]
+    );
+
+    this.slServie.addIngredients(slItems);
   }
 }

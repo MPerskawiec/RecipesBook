@@ -1,1 +1,6 @@
-<p>shopping-list works!</p>
+<p>Lista zakupów:</p>
+<br />
+
+<div *ngFor="let ingredient of ingredients">
+  <p>{{ ingredient.name }} | {{ ingredient.amount }}</p>
+</div>
